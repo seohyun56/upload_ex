@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>221004_프론트엔드_주서현</title>
+
+    <meta name="title" content="221004_프론트엔드_주서현">
+    <meta name="description" content="html 및 css 평가입니다">
+
+    <meta property="og:title" content="221004_프론트엔드_주서현">
+    <meta property="og:url" content="https://github.com/seohyun56/upload_ex">
+    <meta property="og:description" content="html 및 css 평가">
+    <meta property="og:image" content="https://github.com/seohyun56/upload_ex/images/ogimg.png">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        h1 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h4><a href="#">본문으로 바로가기</a></h4>
+    <h1><a href="https://www.naver.com" target="_blank">NAVER</a></h1>
+    <h2>네이버 회원가입</h2>
+    <form>
+        <section>
+            <h3><label for="user_id">아이디</label></h3>
+            <input type="text" name="user_id" id="user_id">@naver.com
+        </section>
+
+        <section>
+            <h3><label for="user_pw">비밀번호</label></h3>
+            <input type="text" name="user_pw" id="user_pw">
+        </section>
+
+        <section>
+            <h3><label for="user_pw2">비밀번호 재확인</label></h3>
+            <input type="text" name="user_pw2" id="user_pw2">설정하려는 비밀번호가 맞는지 확인하기 위해 다시 입력해주세요
+        </section>
+
+        <section>
+            <h3><label for="user_name">이름</label></h3>
+            <input type="text" name="user_name" id="user_name">
+        </section>
+
+        <section>
+            <h3><label for="user_year">생년월일</label></h3>
+            <input type="text" name="user_year" id="user_year" placeholder="년(4자)"><br>
+            <select name="year">
+                <option value="월">월</option>
+                <option value="1">1월</option>
+                <option value="1">2월</option>
+                <option value="1">3월</option>
+                <option value="1">4월</option>
+                <option value="1">5월</option>
+                <option value="1">6월</option>
+                <option value="1">7월</option>
+                <option value="1">8월</option>
+                <option value="1">9월</option>
+                <option value="1">10월</option>
+                <option value="1">11월</option>
+                <option value="1">12월</option>
+            </select>
+            <br>
+            <input type="text" name="user_day" id="user_day" placeholder="일">
+        </section>
+
+        <section>
+            <h3><label for="user_sex">성별</label></h3>
+            <select name="user_sex" id="user_sex">
+                <option value="성별">성별</option>
+                <option value="남">남</option>
+                <option value="여">여</option>
+            </select>
+        </section>
+
+        <section>
+            <h3><label for="user_email">본인 확인 이메일(선택)</label></h3>
+            <input type="email" name="email" id="user_email" placeholder="선택입력">
+        </section>
+
+        <section>
+            <h3><label for="country_number">휴대전화</label></h3>
+            <select name="country_number" id="country_number">
+                <option value="82">대한민국 +82</option>
+                <option value="1">미국 +1</option>
+                <option value="84">베트남 +84</option>
+                <option value="44">영국 +44</option>
+                <option value="61">오스트레일리아 +61</option>
+                <option value="81">일본 +81</option>
+                <option value="86">중극 +86</option>
+                <option value="66">타이 +66</option>
+                <option value="63">필리핀 +63</option>
+            </select>
+            <br>
+            <input type="text" name="user_number" id="user_number" placeholder="전화번호 입력"><a href="#">인증번호 받기</a><br>
+            <input type="text" name="code" id="code" placeholder="인증번호를 입력하세요" disabled>인증받은 후 인증번호를 입력해야 합니다.<br>
+            <button type="submit">가입하기</button>
+        </section>
+
+        <ul>
+            <li><a href="#">이용약관</a></li>
+            <li><strong><a href="#">개인정보처리방침</a></strong></li>
+            <li><a href="#">책임의 한계와 법적고지</a></li>
+            <li><a href="#">회원정보 고객센터</a></li>
+        </ul>
+
+        <p><em><a href="#">naver</a> Copyright &#169; <a href="#">NAVER Corp.</a> All Rights Reserved.</em></p>
+    </form>
+</body>
+</html>
