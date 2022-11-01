@@ -1,0 +1,195 @@
+// 컴파일 되지 않는 주석
+/* 컴파일 되는 주석 */
+// @import "./minireset", "./fonts"; 확장자 생략 가능. 외부, 내부 문서 불러오는 방식
+
+// 변수 선언
+// color
+$colorBg: #7d1e6a;
+$colorWhite: #fff;
+$colorMain: #e4010b;
+// font
+$font: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+// border
+$border: $colorMain 1px solid;
+
+// @mixin $fontSpoqa {
+//     font-family: ;
+//     color: ;
+//     background: {
+//         color: ;
+//         image: url();
+//         repeat: ;
+//     }
+// }
+
+// 선언 @mixin, 적용 @include
+@mixin primary-font {
+    font : {
+        family: $font;
+        weight: 400;
+        size: 18px;
+    }
+    color: #000;
+    line-height: 1.5;
+}
+@mixin fontSpoqa {
+    font : {
+        family: 'SpoqaHanSansNeo', sans-serif;
+        weight: 300;
+        size: 14px;
+    }
+    color: $colorWhite;
+}
+
+// .clearFix::after {}
+
+body {
+    // 적용
+    @include primary-font;
+
+    text-transform: capitalize;
+    background: #2e160a url(./images/dark-wood.jpg);
+}
+
+/* container */
+.container { // 실제크기 948px
+    border: solid #eeb0b0 4px;
+    background-color: $colorWhite;
+    width: 940px; // 컨텐츠 영역 940-8=932
+    margin: 20px auto;
+
+    /* header */
+    h1 { 
+        background: #7d1e6a url(./images/logo.png) no-repeat 25px 20px / 90px;
+        color: $colorWhite;
+        font-family: 'Lobster', Georgia, 'Times New Roman', Times, serif;
+        font-size: 38px;
+        line-height: 0.9;
+        height: 130px;
+        // text-indent: -9999px;
+        padding: 30px 0 0 130px;
+
+        em {
+            display: block;
+            font-family: 'Abril Fatface', Georgia, 'Times New Roman', Times, serif;
+            font-size: 30px;
+        }
+    }
+
+    #gnb {
+        background-color: #ffcd38;
+        /* overflow: hidden; */ @at-root
+        // #gnb::after {}
+
+        // clearFix
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            float: left;
+            a {
+                color: $colorBg;
+                text-decoration: none;
+                font-family: $font;
+                font-weight: 700;
+                font-size: 18px;
+                display: block;
+                padding: 10px 20px;
+
+                &:hover {
+                    background-color: $colorMain;
+                    color: $colorWhite;
+                }
+            }
+        }
+    }
+
+    footer {
+        background-color: $colorBg;
+        @include fontSpoqa;
+        height: 34px;
+        line-height: 34px;
+        padding-left: 20px;
+    }
+
+    /* main */
+    main {
+        overflow: hidden;
+
+        article { // 
+            background-color: #f1eee9;
+            float: left;
+            width: 70%; // 932 * 0.7 = 652px / 컨텐츠 영역: 652 - p40 - b1 = 611px
+            padding: 30px 20px;
+            // padding: {
+            //     top: 30px; bottom: 30px;
+            //     left: 20px; right: 20px;
+            // }
+            border-right: $border;
+
+            figure { // 실제크기 304
+                border: $border;
+                background-color: $colorWhite;
+                width: 304px; 
+                padding: 6px;
+                font-size: 16px;
+                text-align: right;
+                color: #999;
+                font-style: italic;
+                float: left;
+
+                margin: 0 20px 40px 0;
+            }
+            .txt_box { /* article 컨텐츠 611 - 304 = 307px */
+                width: 287px; // 304 - m20
+                float: left;
+
+                &-title1 { // .txt_box-title1
+                    font-size: 26px;
+                    font-weight: 700;
+                }
+                &_title2 { // .txt_box_title2
+                    color: $colorMain;
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin: 10px 0;
+                }
+            }
+        }
+
+        aside {
+            float: left;
+            width: 30%;
+            font-size: 24px;
+
+            h2 {
+                font-size: 30px;
+                font-weight: 700;
+                color: $colorMain;
+                margin: 30px 20px;
+            }
+            ul {
+                &.recipe a { // ul.recipe 종속선택자
+                    display: block;
+                    color: #000;
+                    text-decoration: none;
+                    border-bottom: $border;
+                    padding: 16px 20px 8px;
+
+                    &:hover {
+                        background-color: $colorMain;
+                        color: $colorWhite;
+                    }
+                }
+            }
+
+            address {
+                font-style: normal;
+                margin-left: 20px;
+            }
+        }
+    }
+}
