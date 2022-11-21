@@ -1,0 +1,398 @@
+@charset "utf-8";
+
+/* animation */
+@keyframes dropMenu1 {
+    100% {
+      transform: scaleY(1);
+    }
+}
+@keyframes dropMenu2 {
+    50% {
+      padding-left: 5px;
+    }
+}
+@keyframes dropMenu3 {
+    100% {
+      transform: translate(-50%, -50%) scaleY(1);
+      opacity: 1;
+    }
+}
+
+html {
+    font-family: 'Pretendard', -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar{
+    width: 7px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: royalblue;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+}
+h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+img {
+    object-fit: cover;
+}
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.container header {
+    width: 100%;
+    padding: 0 34px;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+.container header h1 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #333;
+}
+.container header .gnb {
+    display: flex;
+    margin-left: auto;
+}
+ .container header .gnb li {
+    position: relative;
+}
+.container header .gnb li a {
+    font-size: 18px;
+    padding: 0 18px;
+    font-weight: 600;
+    text-align: center;
+    height: 59px; 
+    line-height: 59px;
+    color: #000;
+}
+.container header .gnb > li:hover > a {
+    background-color: royalblue; 
+    color: #fff;
+}
+.container header .gnb li:hover .drop_menu {
+    display: block;
+    animation: dropMenu1 0.4s forwards;
+    animation-play-state: running;
+}
+.container header .gnb li .drop_menu {
+    transform-origin: 50% 0;
+    transform: scaleY(0);
+    display: none;
+    opacity: 1;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    /* background-color: #fff; */
+    color: #000;
+    border: 1px solid #000;
+    transition: 0.4s;
+}
+.container header .gnb li .drop_menu a {
+    padding: 0;
+    transition: 0.4s;
+    color: #000;
+}
+.container header .gnb li .drop_menu a:hover {
+    background-color: whitesmoke;
+    color: royalblue;
+    animation: dropMenu2 0.4s;
+}
+.container header .user {
+    margin-left: 30px;
+    display: flex;
+}
+.container header .user a {
+    width: 48px;
+    text-align: right;
+    font-weight: normal;
+    color: #100;
+}
+.container header .user a:hover {
+    color: royalblue;
+}
+
+
+.container main .mainBg {
+    height: 950px;
+    background: url(./images/bgImg.jpg) no-repeat 50% / cover;
+    text-indent: -9999px;
+}
+
+.container main .txtGrid {
+    height: 950px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 100px 96px;
+    background-color: #fff;
+}
+.container main .txtGrid h3 {
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+}
+.container main .txtGrid .txt {
+    padding: 60px 25px;
+}
+.container main .txtGrid .txt1, .container main .txtGrid .txt2 {
+    border-bottom: 1px solid #000;
+}
+.container main .txtGrid .txt1, .container main .txtGrid .txt3 {
+    border-right: 1px solid #000;
+}
+
+.container main .imgGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) / repeat(4, 1fr);
+    height: 765px;
+}
+.container main .imgGrid .box1 {
+    background: url(./images/img1.jpg) no-repeat 50% / cover;
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+.container main .imgGrid .box2 {
+    background: url(./images/img2.jpg) no-repeat 50% / cover;
+    
+}
+.container main .imgGrid .box3 {
+    background: url(./images/img3.jpg) no-repeat 50% / cover;
+}
+.container main .imgGrid .box4 {
+    background: url(./images/img4.jpg) no-repeat 50% / cover;
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+}
+.container main .imgGrid .box5 {
+    background: url(./images/img5.jpg) no-repeat 50% / cover;
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
+.container main .imgGrid .box6 {
+    background: url(./images/img6.jpg) no-repeat 50% / cover;
+}
+.container main .imgGrid .box7 {
+    background: url(./images/img7.jpg) no-repeat 50% / cover;
+}
+/* backdrop-filter */
+.container main .imgGrid .drop {
+    position: relative;
+}
+.container main .imgGrid .drop span {
+    display: block;
+    font-size: 0;
+}
+.container main .imgGrid .drop:hover::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(34, 34, 34, 0.525);
+    backdrop-filter: blur(5px);
+}
+.container main .imgGrid .drop:hover span {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scaleY(0);
+    z-index: 999;
+    color: forestgreen;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 100px;
+    border-radius: 50%;
+    opacity: 1;
+    animation: dropMenu3 0.3s linear forwards;
+}
+
+.container main .ourBusiness {
+    padding: 0 128px 55px;
+    text-align: center;
+}
+.container main .ourBusiness h2 {
+    padding: 120px 0;
+    position: relative;
+}
+.container main .ourBusiness h2::after {
+    content: "";
+    position: absolute;
+    width: 50px; height: 3px;
+    background-color: #000;
+    top: 75%; left: 50%;
+    transform: translateX(-50%);
+}
+.container main .ourBusiness .imgBoxGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr 1fr;
+    gap: 64px;
+    margin-top: 73px;
+}
+.container main .ourBusiness .imgBoxGrid figure img {
+    width: 800px; height: 850px;
+}
+.container main .ourBusiness .imgBoxGrid figure figcaption {
+    margin-top: 15px;
+}
+
+.container main .ourYoutube {
+    padding: 115px 95px 50px;
+    background-color: #eee;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+.container main .ourYoutube h2 {
+    text-align: left;
+}
+.container main .ourYoutube p {
+    text-align: justify;
+}
+.container main .ourYoutube .videoBox {
+    width: 100%;
+    height: 400px;
+    margin-top: 55px;
+    grid-column: span 2;
+    place-content: center;
+    overflow: hidden;
+}
+
+.container main .ourService {
+    height: 950px;
+    padding: 0 128px 55px;
+}
+.container main .ourService h2 {
+    padding: 120px 0;
+    position: relative;
+}
+.container main .ourService h2::after {
+    content: "";
+    position: absolute;
+    width: 50px; height: 3px;
+    background-color: #000;
+    top: 75%; left: 50%;
+    transform: translateX(-50%);
+}
+.container main .ourService .titleBox {
+    display: flex;
+    justify-content: center;
+
+}
+.container main .ourService .titleBox figure {
+    box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
+    margin: 20px 20px 0;
+    transition: 0.3s linear;
+}
+.container main .ourService .titleBox figure:hover {
+    transform: scale(1.1);
+}
+.container main .ourService .titleBox figure img {
+    width: 350px; height: 280px;
+}
+.container main .ourService .titleBox figure figcaption {
+    height: 140px;
+    padding: 20px;
+}
+.container main .ourService .titleBox figure figcaption p {
+    margin-top: 20px;
+}
+
+.container main .location {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    width: 80%;
+    margin: 0 auto 110px;
+}
+.container main .location address {
+    font-style: normal;
+    font-size: 15px;
+    color: #fff;
+    background-color: #4c4c4c;
+    display: inline-block;
+    place-self: start;
+    padding: 15px;
+    margin-top: 15px;
+}
+.container main .location .addressBox li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    padding: 20px;
+}
+.container main .location .addressBox li:nth-child(5) {
+    border-bottom: 2px solid #000;
+}
+.container main .location .addressBox li h4 {
+    font-weight: 700;
+    width: 150px;
+    text-transform: uppercase;
+}
+
+.container main .talk {
+    padding: 100px 200px;
+    width: 100%; height: 475px;
+    text-align: center;
+    background: fixed url(./images/bgImg.jpg) no-repeat 50% / cover;
+    position: relative;
+}
+/* .container main .talk::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(135, 206, 250, 0.4);
+} */
+.container main .talk .talkBg {
+    width: 100%; height: 100%;
+    /* background-color: rgba(135, 206, 250, 0.4); */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.container main .talk .talkBg p {
+    line-height: 1.8;
+}
+.container main .talk .talkBg a {
+    text-transform: capitalize;
+    color: #fff;
+    border: 3px solid #fff;
+    align-self: center;
+    padding: 10px 20px;
+}
+.container main .talk .talkBg a:hover {
+    border: 3px solid royalblue;
+    color: royalblue;
+}
+
+footer {
+    text-align: center;
+    padding: 50px;
+    position: relative;
+}
+footer p {
+    line-height: 1.8;
+}
+footer .top_btn {
+    color: #333;
+    position: absolute;
+    bottom: 20px; right: 20px;
+}
+footer .top_btn span {
+    font-size: 50px;
+}
