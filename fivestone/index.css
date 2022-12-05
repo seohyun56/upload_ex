@@ -110,7 +110,7 @@ nav #gnb .sub_menu a:hover {
     color: #458FDB;
     font-weight: 500;
 }
-nav #gnb > li:hover .sub_menu {
+nav:hover #gnb > li .sub_menu {
     opacity: 1;
     pointer-events: all
 }
