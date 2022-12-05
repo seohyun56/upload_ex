@@ -53,9 +53,6 @@ nav:hover {
 nav:hover .nav_menu {
     opacity: 1;
 }
-nav:hover svg path {
-    fill: #000;
-}
 nav:hover h1 img {
     opacity: 0;
 }
@@ -68,6 +65,9 @@ nav .menu_btn {
 }
 nav .menu_btn svg path {
     fill: #fff;
+}
+nav:hover .menu_btn svg path {
+    fill: #000;
 }
 nav #gnb {
     display: flex;
