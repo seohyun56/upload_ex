@@ -133,6 +133,23 @@ header p {
     top: 380px; left: 125px;
     color: #fff;
 }
+header .slide_ul {
+    position: absolute;
+    top: 607px; left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    display: flex;
+}
+header .slide_ul li a {
+    text-indent: -9999px;
+    width: 50px; height: 5px;
+    margin: 4px;
+    border: 1px solid #fff; 
+}
+header .slide_ul li a.active {
+    border-color: transparent;
+    background-color: #73aeea;
+}
 
 /********** main **********/
 main {
